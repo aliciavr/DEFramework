@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DEFramework" default="all">
+
+    <!--Directories-->
+    <property name="bin.dir" value="bin"/>
+    <property name="docs.dir" value="${bin.dir}/docs"/>
+    <property name="classes.dir" value="${bin.dir}/classes"/>
+    <property name="jar.dir" value="${bin.dir}/jar"/>
+    <property name="src.dir" value="src"/>
+
+    <!--Files-->
+    <property name="manifest.file" value="MANIFEST.MF"/>
+    <property name="main.file" value="planner.ExperimentsPlanner"/>
+    <property name="jar.file" value="DEFramework.jar"/>
+
+    <target name="all" depends="clear, jar, javadoc">
+    </target>
+
+    <target name="init">
+        <mkdir dir="${bin.dir}"/>
+        <mkdir dir="${docs.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${jar.dir}"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${jar.dir}/${jar.file}" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.file}"/>
+            </manifest>
+        </jar>      
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false"/>
+    </target>
+
+    <target name="javadoc">
+        <javadoc sourcepath="${src.dir}" destdir="${docs.dir}" packagenames="*"/>
+    </target>
+
+    <target name="clear">
+        <delete dir="${bin.dir}"/>
+    </target>
+
+</project>
