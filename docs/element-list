@@ -1,0 +1,15 @@
+dealib.algorithms
+dealib.components
+dealib.components.crossovers
+dealib.components.initializers
+dealib.components.mutators
+dealib.components.selectors
+dealib.components.stoppingcriteria
+exceptions
+planner
+planner.configuration
+planner.utils
+planner.utils.evaluators
+planner.utils.evaluators.regrmetrics
+planner.utils.evaluators.testfunctions
+planner.utils.objfunctions
